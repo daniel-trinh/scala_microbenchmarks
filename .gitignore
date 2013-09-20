@@ -1,6 +1,15 @@
-/.idea/
+*.iml
+*.class
+*.log
+
+# sbt specific
+dist/*
 target/
 lib_managed/
 src_managed/
-test-output/
-*.iml
+project/boot/
+project/plugins/project/
+
+# Scala IDE specific
+/.idea/
+.scala_dependencies
