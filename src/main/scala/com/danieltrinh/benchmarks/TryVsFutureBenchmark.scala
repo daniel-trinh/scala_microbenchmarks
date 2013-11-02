@@ -6,13 +6,12 @@ import scala.concurrent.Future
 import scala.util.{ Try, Failure, Success}
 import scala.concurrent.ExecutionContext.Implicits.global
 
-class TryVsFuture extends SimpleScalaBenchmark {
+class TryVsFutureBenchmark extends SimpleScalaBenchmark {
 
   @Param(Array("10", "100", "1000"))
   val length: Int = 0
 
   var array: Array[Int] = _
-
 
   override def setUp() {
     array = new Array(length)
@@ -64,6 +63,7 @@ class TryVsFuture extends SimpleScalaBenchmark {
     result
 
   }
+
   def timeFutureFailed(reps: Int): Future[Int] = repeat(reps) {
     val e = new RuntimeException("Yep")
 
@@ -87,6 +87,19 @@ class TryVsFuture extends SimpleScalaBenchmark {
     }
     result
   }
+
+  def timeFutureSuccessTryFailure(reps: Int): Future[Try[Int]] = repeat(reps) {
+    val e = new RuntimeException("Yep")
+
+    var i = 0
+    var result = Future.successful(Failure(e))
+    while(i < array.length) {
+      result = Future.successful(Failure(e))
+      i = i + 1
+    }
+    result
+  }
+
 
   def timeOptionSome(reps: Int): Option[Int] = repeat(reps) {
 
