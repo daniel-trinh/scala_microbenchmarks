@@ -21,8 +21,12 @@ object Build extends Build {
     // enable forking in run
     fork in run := true,
 
+    // Uncomment this to have compiler print scala code without any scala features.
+    // scalacOptions ++= Seq("-print"),
+
     // we need to add the runtime classpath as a "-cp" argument to the `javaOptions in run`, otherwise caliper
     // will not see the right classpath and die with a ConfigurationException
     javaOptions in run <++= (fullClasspath in Runtime) map { cp => Seq("-cp", sbt.Build.data(cp).mkString(":")) }
+
   )
 }

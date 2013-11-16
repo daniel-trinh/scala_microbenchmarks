@@ -11,7 +11,8 @@ object Runner {
     // we simply pass in the CLI args,
     // we could of course also just pass hardcoded arguments to the caliper Runner
 
-    CaliperRunner.main(classOf[DefaultArgsVsSingletonADT], args: _*)
+    CaliperRunner.main(classOf[DefVsLazyValVsVal], args: _*)
+    // CaliperRunner.main(classOf[DefaultArgsVsSingletonADT], args: _*)
     // CaliperRunner.main(classOf[TraitMixinBenchmark], args: _*)
     // CaliperRunner.main(classOf[ExceptionHandlingBenchmark], args: _*)
     // CaliperRunner.main(classOf[TryVsFutureBenchmark], args: _*)

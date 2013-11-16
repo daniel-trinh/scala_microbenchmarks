@@ -14,7 +14,6 @@ class ExceptionHandlingBenchmark extends SimpleScalaBenchmark {
 
   var array: Array[Int] = _
 
-
   override def setUp() {
     array = new Array(length)
   }
