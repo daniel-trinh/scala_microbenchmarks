@@ -8,7 +8,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 
 class TryVsFutureBenchmark extends SimpleScalaBenchmark {
 
-  @Param(Array("10", "100", "1000"))
+  @Param(Array("10", "100", "1000", "10000"))
   val length: Int = 0
 
   var array: Array[Int] = _
