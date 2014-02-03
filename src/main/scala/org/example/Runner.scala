@@ -19,7 +19,8 @@ object Runner {
     // CaliperRunner.main(classOf[ExceptionHandlingBenchmark], args: _*)
     // CaliperRunner.main(classOf[TryVsFutureBenchmark], args: _*)
     // CaliperRunner.main(classOf[ExceptionObjectCreationBenchmark], args: _*)
-    CaliperRunner.main(classOf[LazyCollectionsVsRegularCollections], args: _*)
+    // CaliperRunner.main(classOf[LazyCollectionsVsRegularCollections], args: _*)
+    CaliperRunner.main(classOf[FilterTakes], args: _*)
 
   }  
 }
