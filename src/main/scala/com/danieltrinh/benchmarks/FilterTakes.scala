@@ -38,7 +38,7 @@ class FilterTakes extends SimpleScalaBenchmark {
         cond(x) {
           case x: Int => true
         }
-      }.take(2).force
+      }.take(i/2).force
 
       i = i + 1
     }
@@ -55,7 +55,7 @@ class FilterTakes extends SimpleScalaBenchmark {
         cond(x) {
           case x: Int => true
         }
-      }.take(2).toList
+      }.take(i/2).toList
       i = i + 1
     }
 
@@ -71,7 +71,7 @@ class FilterTakes extends SimpleScalaBenchmark {
         cond(x) {
           case x: Int => true
         }
-      }.take(2)
+      }.take(i/2)
       i = i + 1
     }
     arguments
