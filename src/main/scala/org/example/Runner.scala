@@ -22,6 +22,7 @@ object Runner {
     // CaliperRunner.main(classOf[LazyCollectionsVsRegularCollections], args: _*)
     // CaliperRunner.main(classOf[FilterTakes], args: _*)
     // CaliperRunner.main(classOf[Pack], args: _*)
-    CaliperRunner.main(classOf[StringVsStringBuilder], args: _*)
-  }  
+    // CaliperRunner.main(classOf[StringVsStringBuilder], args: _*)
+    CaliperRunner.main(classOf[ViewZipForeach], args: _*)
+  }
 }
