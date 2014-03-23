@@ -45,7 +45,7 @@ class UUIDVsCounterVsTimestampBenchmark extends SimpleScalaBenchmark {
     counter
   }
 
-  def timeTimestamp(reps: Int): Long = repeat(reps) {
+  def timeTimestampMillis(reps: Int): Long = repeat(reps) {
     var i = 0
 
     var timestamp: Long = System.currentTimeMillis
@@ -62,4 +62,23 @@ class UUIDVsCounterVsTimestampBenchmark extends SimpleScalaBenchmark {
     }
     timestamp
   }
+
+  def timeTimestampNano(reps: Int): Long = repeat(reps) {
+    var i = 0
+
+    var timestamp: Long = System.nanoTime
+    while(i < array.length) {
+      val prevTimestamp = timestamp
+      timestamp = System.nanoTime
+      // The comparison is just to make the benchmark match
+      // the behavior of the others.
+      if (prevTimestamp < timestamp) {
+        i = i + 1
+      } else {
+        i = i + 1
+      }
+    }
+    timestamp
+  }
+
 }
