@@ -17,6 +17,7 @@ class TraitMixinBenchmark extends SimpleScalaBenchmark {
   override def setUp() {
     array = new Array(length)
   }
+  
   def timeStaticTraits(reps: Int): StaticTraits = repeat(reps) {
     var i = 0
 
