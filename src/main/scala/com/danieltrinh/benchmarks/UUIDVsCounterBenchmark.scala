@@ -52,7 +52,11 @@ class UUIDVsCounterVsTimestampBenchmark extends SimpleScalaBenchmark {
     while(i < array.length) {
       val prevTimestamp = timestamp
       timestamp = System.currentTimeMillis
+      // The comparison is just to make the benchmark match
+      // the behavior of the others.
       if (prevTimestamp < timestamp) {
+        i = i + 1
+      } else {
         i = i + 1
       }
     }
