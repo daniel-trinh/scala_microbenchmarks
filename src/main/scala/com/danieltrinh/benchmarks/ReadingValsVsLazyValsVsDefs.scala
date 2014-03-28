@@ -2,8 +2,9 @@ package com.danieltrinh.benchmarks
 
 import org.example.SimpleScalaBenchmark
 import com.google.caliper.Param
+import scala.collection.mutable._
 
-class DefVsLazyValVsVal extends SimpleScalaBenchmark {
+class ReadingValsVsLazyValsVsDefs extends SimpleScalaBenchmark {
   @Param(Array("10", "100", "1000", "10000"))
   val length: Int = 0
 
@@ -13,49 +14,43 @@ class DefVsLazyValVsVal extends SimpleScalaBenchmark {
     array = new Array(length)
   }
 
+  val test = 1
+  def calculation: Long = Long.MaxValue
+
   def timeVal(reps: Int): MutableObject = repeat(reps) {
     var i = 0
-    var result = new MutableObject
+    val calc = calculation
+    var mutated = new MutableObject()
     while(i < array.length) {
-      val b = setString(result, i+i)
-      result = b
+      mutated.value = calc
       i = i + 1
     }
-    result
+    mutated
   }
-
 
   def timeLazyVal(reps: Int): MutableObject = repeat(reps) {
     var i = 0
-    var result = new MutableObject
+    lazy val calc = calculation
+    var mutated = new MutableObject()
     while(i < array.length) {
-      lazy val b = setString(result, i+i)
-      result = b
+      mutated.value = calc
       i = i + 1
     }
-    result
+    mutated
   }
 
   def timeDef(reps: Int): MutableObject = repeat(reps) {
     var i = 0
-    var result = new MutableObject
+    def calc = calculation
+    var mutated = new MutableObject()
     while(i < array.length) {
-      def b = setString(result, i+i)
-      result = b
+      mutated.value = calc
       i = i + 1
     }
-    result
+    mutated
   }
 
-  /**
-   * Prevents compiler from optimizing vals away
-   */
-  def setString(changeMe: MutableObject, to: Int): MutableObject = {
-    changeMe.value = to
-    changeMe
+  class MutableObject {
+    var value: Long = 0L
   }
-}
-
-class MutableObject {
-  var value: Int = 0
 }
