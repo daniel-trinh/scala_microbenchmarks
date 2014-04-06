@@ -14,7 +14,9 @@ object Build extends Build {
     // dependencies
     libraryDependencies ++= Seq(
         "com.google.code.java-allocation-instrumenter" % "java-allocation-instrumenter" % "2.0",
-        "com.google.code.gson" % "gson" % "1.7.1"
+        "com.google.code.gson" % "gson" % "1.7.1",
+        "com.github.scala-blitz" %% "scala-blitz" % "1.0-M1",
+        "org.scalaz" %% "scalaz-core" % "7.0.6"
     ),
     resolvers += "sonatypeSnapshots" at "http://oss.sonatype.org/content/repositories/snapshots",
 
