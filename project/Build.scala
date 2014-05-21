@@ -13,10 +13,14 @@ object Build extends Build {
 
     // dependencies
     libraryDependencies ++= Seq(
-        "com.google.code.java-allocation-instrumenter" % "java-allocation-instrumenter" % "2.0",
-        "com.google.code.gson" % "gson" % "1.7.1",
-        "com.github.scala-blitz" %% "scala-blitz" % "1.0-M1",
-        "org.scalaz" %% "scalaz-core" % "7.0.6"
+      "com.google.code.java-allocation-instrumenter" % "java-allocation-instrumenter" % "2.0",
+      "com.google.code.gson"                         % "gson"                         % "1.7.1",
+      "com.github.scala-blitz"                       %% "scala-blitz"                 % "1.0-M1",
+      "org.scalaz"                                   %% "scalaz-core"                 % "7.0.6",
+      "org.json4s"                                   %% "json4s-jackson"              % "3.2.8",
+      "org.scalacheck"                               %% "scalacheck"                  % "1.11.3",
+      "com.github.scala-incubator.io"                %% "scala-io-core"               % "0.4.2",
+      "com.github.scala-incubator.io"                %% "scala-io-file"               % "0.4.2"
     ),
     resolvers += "sonatypeSnapshots" at "http://oss.sonatype.org/content/repositories/snapshots",
 

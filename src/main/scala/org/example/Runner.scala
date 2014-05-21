@@ -29,7 +29,10 @@ object Runner {
 //    CaliperRunner.main(classOf[ParallelVsRegularCollections], args: _*)
     // CaliperRunner.main(classOf[MapToSetVsFoldLeft], args: _*)
 //    CaliperRunner.main(classOf[MapIsEmpty], args: _*)
-    CaliperRunner.main(classOf[MapMerge], args: _*)
-
+//    CaliperRunner.main(classOf[MapMerge], args: _*)
+//    CaliperRunner.main(classOf[JsonParsing], args: _*)
+    // CaliperRunner.main(classOf[JsonWriting], args: _*)
+    // CaliperRunner.main(classOf[Fibonacci], args: _*)
+    CaliperRunner.main(classOf[MapToList], args: _*)
   }
 }
